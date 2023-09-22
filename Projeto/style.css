@@ -97,7 +97,8 @@ body * {
 
 /*Personalização do Container que irá aparecer na página!*/
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
    /* ↓ esta borda é MUITO INTERASSANTE de ser feita, pois permite a observação do
    alinhamento dos elementos dentro do containter. Após as configurações de borda, 
    este comando pode ser inativado.
