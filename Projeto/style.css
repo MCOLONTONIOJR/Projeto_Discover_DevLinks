@@ -219,15 +219,24 @@ precisa estar fluido para se adequar a necessidade de resposividade da tela*/
         z-index: 1; /* '1' faz com que o botão fique por cima*/
         top:50%; /* para colocar no meio do trilho eixo vertical*/
         transform: translateY(-50%); /*para colocar o MEIO DO ELEMENTO no top da margem do trilho*/
-     }
+        animation: slide-back 0.2s; 
+    }
 
     /*↓ Movimentação da direita p/ esquerda e vise-versa do botão*/
      .light #switch button {
-        right:0; /*o botão ficará a direita qdo o tema for light*/
-        left: initial; /*o botão voltará a posição inicial se for novamente apertado*/
+        animation: slide-in 0.2s forwards;
+        
+        /*↑ como o botão agora possui animação, fora necessário modificar o conteúdo abaixo ↓*/
+        /*
+        right:0; > o botão ficará a direita qdo o tema for light
+        left: initial; > o botão voltará a posição inicial se for novamente apertado
+        */
      }
 
+     #switch button:hover {
+        outline: 8px solid var(--highlight-color);
 
+     }
    /*↓ TAG [SPAN] Configurando TRILHO por onde o botão "Light-Dark Mode" irá correr*/
    /*SPAN tem propriedade 'inline'. Isso impacta no NÃO RECONHECIMENTO da largura e 
    altura atribuída. Então precisa ser colocado 'display: block' para aparecer.
@@ -378,6 +387,27 @@ precisa estar fluido para se adequar a necessidade de resposividade da tela*/
                 --bg-url: url(./assets/bg-desktop-light.jpg);
             }
         }
+
+        /*Trabalhando com ANIMAÇÕES*/
+        /* O "slide-in" é o título da animação. E ela irá se mover a esquerda entre 0 e 50%*/
+        @keyframes slide-in {
+            from {
+                left: 0;
+            }
+            to {
+                left: 50%;
+            }
+         }
+
+         @keyframes slide-back {
+            from {
+                left: 50%;
+            }
+            to {
+                left: 0;
+            }
+         }
+
 
         /*↓ IMPORTANTE: EXISTEM VÁRIAS MANEIRAS DE SE PROGRAMAR. A MANEIRA CORRETA PORTANTO
         É AQUELA QUE RESOLVE*/
