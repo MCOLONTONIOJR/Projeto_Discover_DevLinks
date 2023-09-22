@@ -47,36 +47,8 @@
  
 body {
     
-    /*ESTE CÓDIGO SERÁ SIMPLIFICADO MAIS ABAIXO
-  
-    INICIO
-    
-        BUSCANDO um ARQUIVO em algum local
-            função:"background-image: url(./assets/bg-mobile.jpg);"
-   
-        NÃO DUPLICAR imagem na tela
-            função:"background-repeat: no-repeat;"
-   
-        CENTRALIZANDO a imagem na tela
-            função:"background-position: top center;"
-
-        EXPANDINDO a imagem na tela qdo necessário
-            função:"background-size: cover"
-    
-    FIM
-    */
-    
-    /*
-    IMPORTANTE: É possível OTIMIZAR a escrita do código (shorthand ou atalho)
-        CONCEITO:
-            "background: color image repeat position/size"
-    */
-
-    /*
-    INSERINDO imagem que ficará de FUNDO na tela
-    */
     background: var(--bg-url) no-repeat top center/cover;
-    height: 100vh /*Ajuste horizontal da view port: página web*/
+    height: 100vh; /*Ajuste horizontal da view port: página web*/
    
 }
 
@@ -378,9 +350,9 @@ precisa estar fluido para se adequar a necessidade de resposividade da tela*/
         
         */
         /* MEDIA QUEREIES */
-            @media(min-width: 700px) {
+            @media (min-width: 700px) {
             :root {
-                --br-url: url(./assets/bg-desktop.jpg);  
+                --bg-url: url(./assets/bg-desktop.jpg);  
                  }
             
             .light {
