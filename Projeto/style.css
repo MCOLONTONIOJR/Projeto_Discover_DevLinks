@@ -1,0 +1,381 @@
+/*ZERANDO padrão do navegador: margin e padding
+    > Função para aplicar para tudo::after
+    margin > espaços
+    padding > prenchimentos internos
+    box-sizing > medidas das caixas
+    */
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+
+}
+/*Declarando VARIÁVEL mutável de acordo com a escolha de modo: "noturno/diurno" no botão seletor da página*/
+/* Abaixo ↓ segue significado de cada função que será adotada:
+    --text-color: cor do texto 
+    --bg-url: cor do background (roxo ou branco)
+    --stroke-color: borda do botão
+    --surface-color: cor de fundo do botão
+    --surface-color-hover: cor do fundo do botão qdo o mouse passar por ele
+    --highlight-color: cor de sobreamento da borda arredandada dos icones de mídias sociais, qdo o mouse
+    passar por ele. 
+    --switch-bg-url: imagem do botão > Lua ou Sol
+*/
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color:  rgba(225, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color:rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+    
+}
+
+/*Chamando a CLASSE "light" definida no HTML, nossa variável, e atribuindo as cores desejadas*/
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color:rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+ 
+body {
+    
+    /*ESTE CÓDIGO SERÁ SIMPLIFICADO MAIS ABAIXO
+  
+    INICIO
+    
+        BUSCANDO um ARQUIVO em algum local
+            função:"background-image: url(./assets/bg-mobile.jpg);"
+   
+        NÃO DUPLICAR imagem na tela
+            função:"background-repeat: no-repeat;"
+   
+        CENTRALIZANDO a imagem na tela
+            função:"background-position: top center;"
+
+        EXPANDINDO a imagem na tela qdo necessário
+            função:"background-size: cover"
+    
+    FIM
+    */
+    
+    /*
+    IMPORTANTE: É possível OTIMIZAR a escrita do código (shorthand ou atalho)
+        CONCEITO:
+            "background: color image repeat position/size"
+    */
+
+    /*
+    INSERINDO imagem que ficará de FUNDO na tela
+    */
+    background: var(--bg-url) no-repeat top center/cover;
+   
+}
+
+/* CSS rules to specify families
+    Nota: qdo utilizamos a função "*" no seletor "body" estamos dizendo para aplicar o código que
+    que escrevemos para todos os elementos do "body".
+*/
+
+body * { 
+    font-family: 'Inter', sans-serif; 
+    
+    /*A definição de cor pode ser tirado do FIGMA. Basta clicar no texto e ir em "inspect" para verificar
+    o código da fonte no campo "Colors". Depois é só inserir a cor no Body utilizando a função abaixo:*/
+    /*color: #ffffff; > como a página irá variar entre modo noturno/diurno este comando deverá receber uma
+    variável e não a cor específica. Vide ↓ abaixo:
+    color: #ffffff; */
+    color: var(--text-color);
+}
+
+/*Personalização do Container que irá aparecer na página!*/
+#container {
+    width: 360px;
+   /* ↓ esta borda é MUITO INTERASSANTE de ser feita, pois permite a observação do
+   alinhamento dos elementos dentro do containter. Após as configurações de borda, 
+   este comando pode ser inativado.
+    
+        border: 1px solid red;*/
+    
+
+    /*MARGEANDO dentro do container o AVATAR e o Texto (@maykbrigto)
+    
+        margin-top: 56px;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+    
+    Aqui (↑) tbm pode ser utilizado a função "padding-top no lugar de "margin-top */
+    
+    /*NO Entanto, existe uma forma mais prática de se fazer. Vide abaixo (↓)*/    
+    /*IMPORTANTE: O comando seguirá uma as configurações das margens ao redor dos elementos
+    no sentido do PONTEIRO de um RELÓGIO: CIMA > DIREITA > BOTTOM > LEFT.
+
+        > "margin: CIMA DIREITA BOTTOM LEFT*/
+    margin: 56px auto 0px auto;
+    padding: 0 24px;
+
+}
+
+
+/*IMPORTANTE: No CSS não é necessário inserir a altura pois a container
+precisa estar fluido para se adequar a necessidade de resposividade da tela*/
+
+/* ||||||| PROFILE ||||||| */  
+     
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+   
+    /*CONCEITO: "img" é elemento IN LINE. Logo, a função "margin" não funciona 
+    de forma direta. É necessário transformá-la em "block" e para isso usa-se
+    a função: "display: block"
+    */
+
+    /* display: block;*/
+
+    /* A função block faz com que o containder ocupe todo espaço horizontal
+    da tela, empurrando para baixo ou para cima, os outros containers. É uma
+    função semelhante a função "Quebra de texto > Superior e Inferior" existente
+    no MS Word
+    */
+    width: 112px;
+
+ }
+         
+ /* DICA: 
+         Todo elemento HTML possue uma regra de visualização
+            
+            "img"
+                display: none; > oculta o container.      
+           
+            "div"
+                display: block; > ajusta a largura horizontal do conteiner de
+                maneira a preencher a tela inteira. Qdo fazemos isso, NÃO PODE
+                existir linha de código definindo a largura por padrão. Então, 
+                qqr elemento/container novo será "empurrado para baixo" na tela.
+
+            "a" 
+                é utilizado para escrever textos dentro da página.
+    
+        Logo, precisamos ficar atentos para o fato de que se queremos os elementos
+        ou conteiners estejam lado a lado, precisamos convertê-los para "InLine". 
+        E caso queiramos que estejam em cascata, precisamos convertê-los para "Block".
+        Para isso, precisamos primeiro ter a certeza da característica do elemento:
+           
+            "div" = Elemento > Block
+                Posso usar:
+                    > "margin: auto" para centralizar
+
+            "img" = Elemento > Inline
+                    > "margin: auto" NÃO É POSSÍVEL de ser aplicada
+
+            "a" = Elemento > Inline
+
+            "li" = Elemento > Block
+
+            "span" = Elemento > Block
+                    
+    */
+    #profile p {
+        /*Definindo as características da fonte quando escrever textos utilizando a função <p>*/
+       
+        font-weight: 500;
+        line-height: 24px;
+        margin-top: 8px;
+     }
+
+   /* ||||||| SWITCH ||||||| */  
+   #switch {
+        /*border: 1px solid red; /*para facilitar a visualização durante o desenvolvimento*/
+        position: relative; /*para encaixar o botão dentro do trilho*/
+        width: 64px; /*extensão do trilho*/
+        margin: 4px auto;
+        
+   }
+     
+   /*↓ TAG [BUTTON] Configurando os botão "Light-Dark Mode"*/
+     #switch button {
+        width: 32px;
+        height: 32px;
+        background: white var(--switch-bg-url) no-repeat center;
+        border: 0;
+        border-radius: 50%;
+        /* ↓ Sobrepondo o botão sob o trilho*/
+        position: absolute;
+        left: 0; /*o botão ficará à esquerda qdo o tema for dark*/
+        z-index: 1; /* '1' faz com que o botão fique por cima*/
+        top:50%; /* para colocar no meio do trilho eixo vertical*/
+        transform: translateY(-50%); /*para colocar o MEIO DO ELEMENTO no top da margem do trilho*/
+     }
+
+    /*↓ Movimentação da direita p/ esquerda e vise-versa do botão*/
+     .light #switch button {
+        right:0; /*o botão ficará a direita qdo o tema for light*/
+        left: initial; /*o botão voltará a posição inicial se for novamente apertado*/
+     }
+
+
+   /*↓ TAG [SPAN] Configurando TRILHO por onde o botão "Light-Dark Mode" irá correr*/
+   /*SPAN tem propriedade 'inline'. Isso impacta no NÃO RECONHECIMENTO da largura e 
+   altura atribuída. Então precisa ser colocado 'display: block' para aparecer.
+   */
+  #switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+
+  }
+   
+     /* LINKS */
+
+        /*Comando para tirar os "." da lista criada no projeto
+            > none = nenhum
+        */
+     ul {
+        list-style: none;
+
+        /* ↓ O comando a seguir faz com que os elementos da lista fiquem LADO a LADO*/
+        display: flex;
+
+        /* ↓ O comando coloca os elementos da lista, um abaixo do outro*/
+        flex-direction: column;
+
+        /*↓ O comando abaixo coloca espaço (vertical) entre os elementos da lista*/
+        gap: 16px;
+        /*↓ O comando abaixo coloca borda na lista*/
+        /*border: 1px solid red;*/
+        padding: 24px 0;
+
+     }
+
+  
+
+
+     ul li a {
+        
+        /*O uso da borda vermelha facilita identificar o posicionamento do texto durante
+        a execução do projeto. Depois de concluída a configuração, é só desabilitá-lo*/
+        /* border: 1px solid red; */
+        
+            /*↓ O comando baixo faz com que o  "a" ocupe todo espaço disponível*/
+        display: flex;
+            /*↓ O comando abaixo irá colocar o conteúdo do elemento, centralizado, ao meio*/
+        justify-content: center;
+            /* O comando "display: flex" faz com que o elemento fique, caso aumentada a margem, 
+            na topo da borda*/
+            /*↓ O comando abaixo aumenta a margem*/
+            /*height: 52px;*/
+            /*↓ O comando baixo alinha o elemento no centro de sua borda*/
+        align-items: center;
+            /*↓ O comando abaixo ajusta as dimensões de altura e largura de borda com um todo*/
+        padding: 16px 24px;
+            /*↓ O comando abaixo coloca fundo branco no preenchimento do espaço onde está o 
+            elemento*/
+        background: var(--surface-color);
+            /*↓ O comando abaixo insere uma nova borda no elemento
+        border: 1px solid rgba(225, 255, 255, 0.5);*/
+        border: 1px solid var(--stroke-color);
+        
+            /*↓ O comando abaixo executa um arredondamento de borda*/
+        border-radius: 8px;
+            /*↓ O comando baixo deixa o fundo do elemento embaçado ou fosco*/
+        backdrop-filter: blur(4px);
+            /*↓ O comando baixo ajusta compatibilidade do comando como o Safari 9*/      
+       -webkit-backdrop-filter: blur(4px);
+            /*↓ O comando baixo insere "linha acima" "linha abaixo" "linha ao centro" no elemento*/
+                /* 
+                   > taxado = line-trough
+                   > linha acima = overline
+                   > linha abaixo = underline
+                   > nenhuma linha = none
+                */
+        text-decoration:none;
+            /*↓ O comando abaixo irá dar tamanho a fonte do elemento*/
+        font-weight: 500;   
+            /*↓ O comando abaixo define o tempo de transição entre o fundo padrão e o fundo, mais abaixo,
+            utilizado no "hover"*/         
+        transition: background 0.2s;
+        
+   
+   
+    }
+     /*pseudo-selector - alteração de característica do elemento ao passar o mouse por cima*/
+    ul li a:hover {
+        background: var(--surface-color-hover);
+        
+
+        /*border: 1.5px solid white; > como a página irá variar entre modo noturno/diurno este comando deverá receber uma
+    variável e não a cor específica. Vide ↓ abaixo:*/
+    border: 1.5px solid var(--text-color);
+
+    }
+
+    /*social links*/
+    #social-links {
+
+       /* border: 1px solid red;*/
+        display: flex;
+        padding: 24px 0px;
+        font-size: 24px;
+        justify-content: center;
+                     
+    }
+
+ 
+    #social-links a:hover {
+       /* ↓ O comando abaixo executa uma animação qdo o mouse passa por cima do icone*/
+        background: var(--highlight-color);
+        
+    }
+       /* ↓ O comando abaixo ajusta e alinha os icones dentro da borda atribuída*/
+    #social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:16px;
+        transition: background 0.2s;
+        border-radius: 50%; 
+    }
+
+    footer {
+       /* ↓ O comando abaixo configura o rodapé alinhando margem e centro*/
+        padding:24px 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+  
+
+        /*↓ IMPORTANTE: EXISTEM VÁRIAS MANEIRAS DE SE PROGRAMAR. A MANEIRA CORRETA PORTANTO
+        É AQUELA QUE RESOLVE*/
+         
+        /*↓ EXEMPLO*/
+            /*↓ O comando abaixo irá extender a borda do elemento preenchendo todo espaço
+            disponível*/
+                /*display: block;*/
+            /*↓ O comando abaixo irá centralizar o conteúdo do elemento dentro do seu
+            container */
+                /* text-align: center; */
+            
+
+
+      
+
+
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="" >
+    <!--- A definição ↑ da classe: [class="light"] permitirá a a DEFINIÇÃO e USO de VARIÁVEIS para
+    alterar a cor de fundo permitindo efeito "noturno".  -->
+    <!--- INÍCIO | CONFIGURAÇÕES da PÁGINA -->
+    <head>
+         <!---para aceitar CARACTERES ESPECIAIS-->
+         <meta charset="UTF-8" />
+   
+         <!--- definie a RESPONSIVIDADE da janela web -->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   
+         <!--- Abaixo definiremos as fontes que serão utilizadas na página/projeto. Para tanto, será
+        necessário seguir alguns passos:
+                    1º Ir no Google Fonts "www.fonts.google.com
+            2º Pesquisar pela palavra "Inter"
+            3º Localizar as palavras com peso 400 e 500 respectivamente
+                Nota: Irá aparecer em azul canto direito escrito "select retangular 400" e "select 
+                medium 500"
+                > Clicar no sinal de (+)
+                    Nota: irá aparecer uma janela do lado direito contendo os código fonte que deverão
+                    ser inseridos no projeto, na aba index.html
+                > Clicar no ícone para copiar o código
+            4º Ir na aba "index.html" e inserir no cabeçalho, logo na primeira linha. Como fetio abaixo.
+            5º Volte na página do Google Fonts, logo abaixo de onde foram copiados os códigos fonte abaixo,
+            e localize o campo "CSS rules to specify families". Copie o códio CSS. Agora, vá na aba "sytle.css"
+            e cole o código copiado. 
+                Nota: No aba "style.css" localize o comentário: "cole aqui: CSS rules to specify families"   
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+   
+   
+    <!--- definindo TÍTULO da PÁGINA -->
+        <title> Devlinks </title>
+   
+    <!--- VINCULANDO ao CSS o ESTILO da PÁGINA -->
+        <link rel="stylesheet" href="style.css"/>
+
+    <!--- FIM | CONFIGURAÇÕES da PÁGINA -->
+    </head>
+
+    <body>
+        
+        <!-- Espaço (retângulo) construido na página onde,dentro dele, será inserido
+        os objetos em HTML -->
+        <div id="container" >
+            <!-- Inserindo o avatar (foto) dentro o container -->
+            <!-- IMPORTANTE: Para maiores detalhes de como formatar o avatar, assistir 
+            Módulo 3, aula "adicionando a imagem ao perfil"-->
+            <div id="profile">
+            <!--- Para buscar o arquivo da web, onde estiver, a instrução a ser 
+                utilizada segue o exemplo: "https://github.com/maykbrito.png"-->
+
+                <!--- Perceba que o alt é a descrição da imagem que aparecerá nas 
+                    buscas do motor de busca do Google --->
+               
+                <img src = "./assets/Avatar.png" 
+                alt="Foto de Mayk Brito sorrindo, usando óculos e camisa preta
+                e fundo amarelo"
+                />
+
+                <!-- Inserindo texto abaixo do avatar-->
+                <p>@maykbrito</p>
+            </div>
+            <!-- Este comando permite inserir o BOTÃO DE SELEÇÃO de template: Dark or Light-->   
+            <div id="switch" onclick="toggleMode()">
+                <!-- o comando 'onclick="toggleMode()" tem o objetivo executar uma função em JavaScript
+                MASSSS precisa adicionar a função logo mais abaixo, no final do código, para "vincular"
+                o JavaScript ao código. Ver: "Vinculando JavaScript ao código"-->
+                <button></button>
+               
+                <!-- ↓ O comando abaixo traz o ícone SVG para a tela sem utilizar comando CSS-->
+                <!-- <img src="./assets/moon-stars.svg" alt =""> -->
+                <span></span>
+            </div>     
+
+
+
+        <!-- Agora, fazeremos a LISTA DE LINKS
+            > utilizaremos a TAG "UL" para criar a LISTA
+            > utilizaremos a TAG "li" para criar os ITENS da lista
+        -->
+            <ul>
+                <!--passando o mouse por cima do elemento é possível consultar sua especificação.
+                Sigurando o CTRL e apertando o MDN Reference. 
+                Neste caso, o significado é:
+                O elemento HTML<ul> (ou elemento HTML de Lista desordenada) representa 
+                uma lista de itens sem ordem rígida, isto é, uma coleção de itens que 
+                não trazem uma ordenação numérica e as suas posições, nessa lista, são 
+                irrelevantes. Caracteristicamente, os itens em uma lista desordenada 
+                são exibidos com um marcador que pode ter várias formas, como um ponto, 
+                um círculo, ou um quadrado. O tipo de marcador não é definido na 
+                descrição HTML da página, mas na CSS associada, utilizando a propriedade 
+                list-style-type (en-US).
+
+                RESUMINDO: Fazendo isso "<ul>" a listagem é classificada por pontos "."
+                    Ficando:
+                    . item
+                    . item
+                    . item
+
+                Se quisessemos classificá-la por números, devemos utilizar a função "<ol>"
+                    Ficando:
+                    1. item
+                    2. item
+                    3. item
+                -->
+                <li>
+                    <a href="#"> Inscrever-se no NLW </a>
+                    <!-- Qdo utilizamos o "#" desabilitamos o link. Qdo o usuário
+                    clicar, não irá acontecer nada-->
+                </li>
+
+                <li>
+                    <a href="#">Baixar meu e-book</a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/maykbrito"
+                    target="_blank" rel="noopener"
+                     > Ver meu portfólio </a>
+                    <!-- As funções:
+                        > "target = _blank" > Permite abrir outra página mantendo a principal 
+                        aberta.
+
+                        > "rel=noopener" > È uma recomendação de segurança. É aconselhável 
+                        adicionar o atributo rel="noopener" a links que tenham um 
+                        target="_blank" para evitar que a página aberta em uma nova aba 
+                        tenha acesso ao "window.opener", o que pode ser explorado em ataques 
+                        de segurança.
+                    -->
+                 </li>
+                
+                <li>
+                    <a href="https://rocketseat.com.br/explorer" 
+                    target="_blank" rel="noopener" 
+                    > Conheça o Explorer </a>
+                    
+                </li>
+
+
+            </ul>
+            <!-- DICA PRO: Escrevendo "div#social-links" é uma forma ABREVIADA de chamar o comando abaixo-->
+            <div id="social-links">
+                    <!-- ↓ O comando baixo insere o link de acesso web para mídia social correspondente-->
+                    <!-- ↓ O comando baixo insere o ícone na página-->
+                    <!-- IMPORTANTE: O comando "<a" pede um texto para aparecer na tela. Mas não era para
+                    aparecer. Para resolver, fora inserido o comando "aria-label=true" no comando-->
+                    <a href="https://github.com/maykbrito" 
+                    target="_blank" rel="noopener" aria-label="true">
+                        <ion-icon name="logo-github"></ion-icon>
+                    </a>
+                                        
+                    <a href="https://instagram.com/maykbrito" 
+                    target="_blank" rel="noopener" aria-label="true">
+                        <ion-icon name="logo-Instagram"></ion-icon>                         
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/maykbrito" 
+                    target="_blank" rel="noopener" aria-label="true"> 
+                        <ion-icon name="logo-Linkedin"></ion-icon>
+                    </a>
+                    
+                    <a href="https://youtube.com/maykbrito" 
+                    target="_blank" rel="noopener" aria-label="True"> 
+                        <ion-icon name="logo-Youtube"></ion-icon>
+                    </a>
+                                
+            </div>
+            <!-- Inserindo RODAPÉ no Container -->
+            <footer>
+                Feito com ♥ pela <a href="https:rocketseat.com.br/"
+                target="_blank" rel="noopener"> Rocketseat 
+                </a>
+               </footer>
+    
+        </div>
+        
+        <!-- Inserindo ÍCONES DE MÍDIAS SOCIAIS
+        Estes ícones são encontrados no site "https://ionic.io/ionicons"-->
+       
+
+        <script 
+            type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+        </script>
+        <script 
+            nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+        </script>
+        
+        <!--  ||||||| Vinculando JavaScript ao código ||||||| -->
+        <script src="./script.js"></script>
+
+    </body>
+</html>
