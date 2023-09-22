@@ -76,6 +76,7 @@ body {
     INSERINDO imagem que ficará de FUNDO na tela
     */
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh /*Ajuste horizontal da view port: página web*/
    
 }
 
@@ -360,8 +361,22 @@ precisa estar fluido para se adequar a necessidade de resposividade da tela*/
         text-align: center;
         font-size: 14px;
     }
-
-  
+     
+        /* Esta regra ↓ ajusta a largura da página web qdo ela estiver maior do que 700px. 
+        No entanto ela só funciona de no HTML o comando a seguir, tiver sido inserido::after
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        */
+        @media(min-width: 700px) {
+            :root {
+                --br-url: url(./assets/bg-desktop.jpg);  
+                 }
+            
+            .light {
+                --bg-url: url(./assets/bg-desktop-light.jpg);
+            }
+        }
 
         /*↓ IMPORTANTE: EXISTEM VÁRIAS MANEIRAS DE SE PROGRAMAR. A MANEIRA CORRETA PORTANTO
         É AQUELA QUE RESOLVE*/
