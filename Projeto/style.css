@@ -368,7 +368,8 @@ precisa estar fluido para se adequar a necessidade de resposividade da tela*/
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         */
-        @media(min-width: 700px) {
+        /* MEDIA QUEREIES */
+            @media(min-width: 700px) {
             :root {
                 --br-url: url(./assets/bg-desktop.jpg);  
                  }
