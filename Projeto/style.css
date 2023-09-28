@@ -1,9 +1,4 @@
-/*ZERANDO padrão do navegador: margin e padding
-    > Função para aplicar para tudo::after
-    margin > espaços
-    padding > prenchimentos internos
-    box-sizing > medidas das caixas
-    */
+
 * {
 
     margin: 0;
@@ -11,17 +6,7 @@
     box-sizing:border-box;
 
 }
-/*Declarando VARIÁVEL mutável de acordo com a escolha de modo: "noturno/diurno" no botão seletor da página*/
-/* Abaixo ↓ segue significado de cada função que será adotada:
-    --text-color: cor do texto 
-    --bg-url: cor do background (roxo ou branco)
-    --stroke-color: borda do botão
-    --surface-color: cor de fundo do botão
-    --surface-color-hover: cor do fundo do botão qdo o mouse passar por ele
-    --highlight-color: cor de sobreamento da borda arredandada dos icones de mídias sociais, qdo o mouse
-    passar por ele. 
-    --switch-bg-url: imagem do botão > Lua ou Sol
-*/
+
 :root {
     --text-color: white;
     --bg-url: url(./assets/bg-mobile.jpg);
@@ -32,8 +17,6 @@
     --switch-bg-url: url(./assets/moon-stars.svg);
     
 }
-
-/*Chamando a CLASSE "light" definida no HTML, nossa variável, e atribuindo as cores desejadas*/
 
 .light {
     --text-color: black;
@@ -52,47 +35,19 @@ body {
    
 }
 
-/* CSS rules to specify families
-    Nota: qdo utilizamos a função "*" no seletor "body" estamos dizendo para aplicar o código que
-    que escrevemos para todos os elementos do "body".
-*/
+
 
 body * { 
     font-family: 'Inter', sans-serif; 
-    
-    /*A definição de cor pode ser tirado do FIGMA. Basta clicar no texto e ir em "inspect" para verificar
-    o código da fonte no campo "Colors". Depois é só inserir a cor no Body utilizando a função abaixo:*/
-    /*color: #ffffff; > como a página irá variar entre modo noturno/diurno este comando deverá receber uma
-    variável e não a cor específica. Vide ↓ abaixo:
-    color: #ffffff; */
+   
     color: var(--text-color);
 }
 
-/*Personalização do Container que irá aparecer na página!*/
+
 #container {
     width: 100%;
     max-width: 588px;
-   /* ↓ esta borda é MUITO INTERASSANTE de ser feita, pois permite a observação do
-   alinhamento dos elementos dentro do containter. Após as configurações de borda, 
-   este comando pode ser inativado.
-    
-        border: 1px solid red;*/
-    
-
-    /*MARGEANDO dentro do container o AVATAR e o Texto (@maykbrigto)
-    
-        margin-top: 56px;
-        margin-right: auto;
-        margin-bottom: auto;
-        margin-left: auto;
-    
-    Aqui (↑) tbm pode ser utilizado a função "padding-top no lugar de "margin-top */
-    
-    /*NO Entanto, existe uma forma mais prática de se fazer. Vide abaixo (↓)*/    
-    /*IMPORTANTE: O comando seguirá uma as configurações das margens ao redor dos elementos
-    no sentido do PONTEIRO de um RELÓGIO: CIMA > DIREITA > BOTTOM > LEFT.
-
-        > "margin: CIMA DIREITA BOTTOM LEFT*/
+   
     margin: 56px auto 0px auto;
     padding: 0 24px;
 
